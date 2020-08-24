@@ -1,0 +1,63 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints"/>
+ <ExecutionProfileWindow/>
+ <FrameBufferWindow>
+  <FrameBufferWindow bufferHeight="-1" addressSpace="" addressText="" bufferWidth="-1"/>
+ </FrameBufferWindow>
+ <Memory1/>
+ <Memory2/>
+ <Memory3/>
+ <Memory4/>
+ <Project>
+  <ProjectSessionItem path="ble_app_hrs_freertos"/>
+  <ProjectSessionItem path="ble_app_hrs_freertos;ble_app_hrs_freertos_pca10040_s132"/>
+  <ProjectSessionItem path="ble_app_hrs_freertos;ble_app_hrs_freertos_pca10040_s132;Application"/>
+  <ProjectSessionItem path="ble_app_hrs_freertos;ble_app_hrs_freertos_pca10040_s132;Board Definition"/>
+  <ProjectSessionItem path="ble_app_hrs_freertos;ble_app_hrs_freertos_pca10040_s132;Board Support"/>
+  <ProjectSessionItem path="ble_app_hrs_freertos;ble_app_hrs_freertos_pca10040_s132;Device"/>
+  <ProjectSessionItem path="ble_app_hrs_freertos;ble_app_hrs_freertos_pca10040_s132;nRF_Drivers"/>
+  <ProjectSessionItem path="ble_app_hrs_freertos;ble_app_hrs_freertos_pca10040_s132;nRF_Segger_RTT"/>
+  <ProjectSessionItem path="ble_app_hrs_freertos;ble_app_hrs_freertos_pca10040_s132;nRF_SoftDevice"/>
+ </Project>
+ <Register1/>
+ <Register2/>
+ <Register3/>
+ <Register4/>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never">
+   <Watchpoint expression="NRF_BLE_GATT_MAX_MTU_SIZE" name="NRF_BLE_GATT_MAX_MTU_SIZE" radix="16" linenumber="101" filename="BLE_Init.c"/>
+  </Watches>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="100" useTextEdit="1" openedFrom="C:/Ameya/Projects/BLE_nRF52/Ameya_Personal_Project/nRF5_SDK_13.0.0_04a0bfd/external/freertos/portable/IAR/nrf52/port.c" useBinaryEdit="0" left="0" path="config/FreeRTOSConfig.h" selected="0" top="89" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="566" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="main.c" selected="0" top="554" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="99" useTextEdit="1" openedFrom="C:/Ameya/Projects/BLE_nRF52_Project/Ameya_Personal_Project/nRF5_SDK_13.0.0_04a0bfd/examples/ble_peripheral/ble_app_hrs_freertos/main.c" useBinaryEdit="0" left="0" path="ADC.c" selected="0" top="85" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="530" useTextEdit="1" openedFrom="C:/Ameya/Projects/BLE_nRF52_Project/Ameya_Personal_Project/nRF5_SDK_13.0.0_04a0bfd/examples/ble_peripheral/ble_app_hrs_freertos/ADC.c" useBinaryEdit="0" left="0" path="../../../components/drivers_nrf/saadc/nrf_drv_saadc.c" selected="0" top="522" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="C:/Ameya/Projects/BLE_nRF52_Project/Ameya_Personal_Project/nRF5_SDK_13.0.0_04a0bfd/examples/ble_peripheral/ble_app_hrs_freertos/ADC.c" useBinaryEdit="0" left="0" path="ADC.h" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="275" useTextEdit="1" openedFrom="C:/Ameya/Projects/BLE_nRF52/Ameya_Personal_Project/nRF5_SDK_13.0.0_04a0bfd/examples/ble_peripheral/ble_app_hrs_freertos/ADC.c" useBinaryEdit="0" left="0" path="../../../components/drivers_nrf/saadc/nrf_drv_saadc.h" selected="0" top="247" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="72" useTextEdit="1" openedFrom="C:/Ameya/Projects/BLE_nRF52/Ameya_Personal_Project/nRF5_SDK_13.0.0_04a0bfd/examples/ble_peripheral/ble_app_hrs_freertos/main.c" useBinaryEdit="0" left="0" path="../../../components/softdevice/common/softdevice_handler/softdevice_handler.c" selected="0" top="101" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="58" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="BLE_Init.c" selected="0" top="41" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="BLE_Advertisement.c" selected="0" top="15" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="44" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="BLE_Services.c" selected="0" top="20" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="404" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../components/libraries/bsp/bsp.c" selected="0" top="376" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="28" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="Calibration.c" selected="1" top="12" codecName="Default"/>
+ </Files>
+ <ARMCrossStudioWindow activeProject="ble_app_hrs_freertos_pca10040_s132" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="nrf52832_xxaa External" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Ameya/Projects/BLE_nRF52_Project/Ameya_Personal_Project/nRF5_SDK_13.0.0_04a0bfd/components/drivers_nrf/hal" debugSearchPath="" autoConnectCapabilities="3199"/>
+</session>
