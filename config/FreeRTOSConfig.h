@@ -100,7 +100,7 @@
 #define configTICK_RATE_HZ                                                        1024
 #define configMAX_PRIORITIES                                                      ( 4 )
 #define configMINIMAL_STACK_SIZE                                                  ( 60 )
-#define configTOTAL_HEAP_SIZE                                                     ( 24576 )
+#define configTOTAL_HEAP_SIZE                                                     (4096)
 #define configMAX_TASK_NAME_LEN                                                   ( 8 )
 #define configUSE_16_BIT_TICKS                                                    0
 #define configIDLE_SHOULD_YIELD                                                   1
@@ -122,7 +122,7 @@
 
 /* Run time and task stats gathering related definitions. */
 #define configGENERATE_RUN_TIME_STATS                                             0
-#define configUSE_TRACE_FACILITY                                                  0
+#define configUSE_TRACE_FACILITY                                                  1
 #define configUSE_STATS_FORMATTING_FUNCTIONS                                      0
 
 /* Co-routine definitions. */

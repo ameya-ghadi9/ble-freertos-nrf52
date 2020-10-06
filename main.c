@@ -98,6 +98,11 @@ typedef struct data
   int32_t air_quality;
 }sensor_data;
 
+
+UBaseType_t uxHighWaterMark_ble;
+UBaseType_t uxHighWaterMark_disp;
+UBaseType_t uxHighWaterMark_adc;
+
 /**@brief Callback function for asserts in the SoftDevice.
  *
  * @details This function will be called in case of an assert in the SoftDevice.
@@ -397,7 +402,7 @@ static void ble_stack_thread(void * arg)
     bool erase_bonds;
 
     UNUSED_PARAMETER(arg);
-
+ 
     ble_stack_init();
     gap_params_init();
     gatt_init();
@@ -409,7 +414,8 @@ static void ble_stack_thread(void * arg)
     advertising_init();
 
     application_timers_start();
-
+    
+    uxHighWaterMark_ble = uxTaskGetStackHighWaterMark( NULL );
     advertising_start(erase_bonds);
 
     while (1)
@@ -424,6 +430,8 @@ static void ble_stack_thread(void * arg)
         // registered by softdevice_ble_evt_handler_set during stack initialization.
         // In this code ble_evt_dispatch would be called for every event found.
         intern_softdevice_events_execute();
+
+        uxHighWaterMark_ble = uxTaskGetStackHighWaterMark( NULL );
     }
 }
 
@@ -449,7 +457,8 @@ static void logger_thread(void * arg)
 }
 #endif //NRF_LOG_ENABLED
 
-uint32_t g_led1_count;
+//debugging
+uint32_t g_dbug_count = 0;
 
 //debugging
 int32_t g_recv_data_temp;
@@ -458,32 +467,35 @@ int32_t g_recv_data_air_qual;
 
 static void display_thread(void* arg)
 {
-  //int32_t recv_data[5] = {0};
   sensor_data data_recv;
   
   uint16_t cal_temperature;
   uint16_t cal_humidity;
   uint16_t cal_air_qual;
+  uxHighWaterMark_disp = uxTaskGetStackHighWaterMark( NULL );
 
-  uint32_t led1_count = 0U;
   for(;;)
   {
-    xQueueReceive(m_adc_samples_queue, &data_recv, pdMS_TO_TICKS(1000));
 
-//DEBUGGING  
-//    g_recv_data_temp = data_recv.temperature;
-//    g_recv_data_humidity = data_recv.humidity;
-//    g_recv_data_air_qual = data_recv.air_quality;
+    xQueueReceive(m_adc_samples_queue, &data_recv, pdMS_TO_TICKS(1000));
+    g_dbug_count += 1;
+    //DEBUGGING  
+    //    g_recv_data_temp = data_recv.temperature;
+    //    g_recv_data_humidity = data_recv.humidity;
+    //    g_recv_data_air_qual = data_recv.air_quality;
 
     characteristic_update(&data_recv.temperature,0);
     characteristic_update(&data_recv.humidity,1);
     characteristic_update(&data_recv.air_quality,2);
 
- //Calibration
+    //Calibration
     cal_temperature = get_cal_temperature((uint16_t)data_recv.temperature);
     cal_humidity = get_cal_humidity((uint16_t)data_recv.humidity);
-    //TO BE FIXED
+    //@TODO TO BE FIXED
     //cal_air_qual =  get_cal_air_quality((uint16_t)data_recv.air_quality);
+    
+    //Inspect high water mark on entering the task
+    uxHighWaterMark_disp = uxTaskGetStackHighWaterMark( NULL );
   }
 }
 
@@ -492,6 +504,7 @@ BaseType_t g_return_val;
 static void adc_sampling_thread(void* arg)
 {  
   sensor_data sample = {0};
+  uxHighWaterMark_adc = uxTaskGetStackHighWaterMark( NULL );
   for(;;)
   {
       bsp_board_led_invert(BSP_LED_INDICATE_USER_LED2);
@@ -506,6 +519,10 @@ static void adc_sampling_thread(void* arg)
 
       //Push to queue
       xQueueSendToFront(m_adc_samples_queue, (&sample), 0);
+
+      //Inspect high water mark on entering the task
+      uxHighWaterMark_adc = uxTaskGetStackHighWaterMark( NULL );
+
       vTaskDelay(pdMS_TO_TICKS(500));
   }
 }
@@ -513,6 +530,7 @@ static void adc_sampling_thread(void* arg)
 /**@brief A function which is hooked to idle task.
  * @note Idle hook must be enabled in FreeRTOS configuration (configUSE_IDLE_HOOK).
  */
+
 void vApplicationIdleHook( void )
 {
 }
@@ -541,7 +559,7 @@ int main(void)
 {
     clock_init();
     bsp_board_leds_init();// Initialize LEDs for debugging
-    //bsp_board_led_on(BSP_LED_INDICATE_USER_LED4);
+   
     timers_init();        // Initialize application timers
     saadc_init();
 
@@ -558,19 +576,19 @@ int main(void)
     log_init(); //Init log module
 
     // Start execution.
-    g_return_val = xTaskCreate(ble_stack_thread, "BLE", 512, NULL, 3, &m_ble_stack_thread);
+    g_return_val = xTaskCreate(ble_stack_thread, "BLE", 192, NULL, 3, &m_ble_stack_thread);
     if (pdPASS != g_return_val)
     {
         APP_ERROR_HANDLER(NRF_ERROR_NO_MEM);
     }
 
-    g_return_val = xTaskCreate(adc_sampling_thread, "ADC", 128, NULL, 1, &m_adc_thread);
+    g_return_val = xTaskCreate(adc_sampling_thread, "ADC", 100, NULL, 1, &m_adc_thread);
     if(pdPASS != g_return_val)
     {
         APP_ERROR_HANDLER(NRF_ERROR_NO_MEM);
     }
 
-    g_return_val = xTaskCreate(display_thread, "DISP", 192, NULL, 2, &m_display_thread);
+    g_return_val = xTaskCreate(display_thread, "DISP", 100, NULL, 2, &m_display_thread);
     if (pdPASS != g_return_val)
     {
         APP_ERROR_HANDLER(NRF_ERROR_NO_MEM);
@@ -594,14 +612,21 @@ int main(void)
     }
 }
 
+char task_name[16];
 
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
 {
+  int i = 0;
+  while(pcTaskName[i] != 0)
+  {
+    task_name[i] = pcTaskName[i];
+    i++;
+  }
   while(1)
   {
-    bsp_board_led_off(BSP_LED_INDICATE_USER_LED1);
+    bsp_board_led_on(BSP_LED_INDICATE_USER_LED1);
     bsp_board_led_off(BSP_LED_INDICATE_USER_LED2);
-    bsp_board_led_off(BSP_LED_INDICATE_USER_LED3);
+    bsp_board_led_on(BSP_LED_INDICATE_USER_LED3);
     bsp_board_led_on(BSP_LED_INDICATE_USER_LED4);
   }
 }
