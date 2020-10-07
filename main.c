@@ -477,12 +477,12 @@ static void display_thread(void* arg)
   for(;;)
   {
 
-    xQueueReceive(m_adc_samples_queue, &data_recv, pdMS_TO_TICKS(1000));
+    xQueueReceive(m_adc_samples_queue, &data_recv, portMAX_DELAY);
     g_dbug_count += 1;
     //DEBUGGING  
-    //    g_recv_data_temp = data_recv.temperature;
-    //    g_recv_data_humidity = data_recv.humidity;
-    //    g_recv_data_air_qual = data_recv.air_quality;
+    //g_recv_data_temp = data_recv.temperature;
+    //g_recv_data_humidity = data_recv.humidity;
+    //g_recv_data_air_qual = data_recv.air_quality;
 
     characteristic_update(&data_recv.temperature,0);
     characteristic_update(&data_recv.humidity,1);
