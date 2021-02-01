@@ -1173,7 +1173,13 @@
       <name>$PROJ_DIR$\..\..\..\BLE_Services.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\Calibration.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\Globals.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\LCD.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\main.c</name>
@@ -1287,7 +1293,13 @@
       <name>$PROJ_DIR$\..\..\..\..\..\..\components\drivers_nrf\gpiote\nrf_drv_gpiote.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\components\drivers_nrf\saadc\nrf_drv_saadc.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\..\components\drivers_nrf\uart\nrf_drv_uart.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\components\drivers_nrf\hal\nrf_saadc.c</name>
     </file>
   </group>
   <group>

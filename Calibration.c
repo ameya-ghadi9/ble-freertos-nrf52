@@ -19,14 +19,14 @@ static double Calculate_PPM(double ratio);
 int32_t Calibrate_Temperature(int32_t raw_temp_adc)
 {
   //@todo- try to make the calculations suitable for int types
-  int32_t cal_temp = (uint16_t)((raw_temp_adc - (int32_t)592.23)/(int32_t)10.92);        //x = (y-b)/m
+  int32_t cal_temp = ((raw_temp_adc - 592)/11);        //x = (y-b)/m
   return cal_temp;
 }
 
 int32_t Calibrate_Humidity(int32_t raw_humidity_adc)
 {
   //@todo- try to make the calculations suitable for int types
-  int32_t cal_humidity = (uint16_t)((raw_humidity_adc - (int32_t)568.70)/(int32_t)25.97);
+  int32_t cal_humidity = ((raw_humidity_adc - 569)/26);
   return cal_humidity;
 }
 

@@ -1,35 +1,34 @@
 
+
 GraphedExpression="g_dbug_count", DisplayFormat=DISPLAY_FORMAT_DEC
 OpenDocument="main.c", FilePath="C:/Ameya/Projects/BLE_nRF52_Project/Ameya_Personal_Project/nRF5_SDK_13.0.0_04a0bfd/examples/ble_peripheral/ble_app_hrs_freertos/main.c", Line=0
 OpenDocument="port_cmsis_systick.c", FilePath="C:/Ameya/Projects/BLE_nRF52_Project/Ameya_Personal_Project/nRF5_SDK_13.0.0_04a0bfd/external/freertos/portable/CMSIS/nrf52/port_cmsis_systick.c", Line=172
 OpenToolbar="Debug", Floating=0, x=0, y=0
 OpenWindow="Call Stack", DockArea=FLOATING, x=1178, y=434, w=651, h=254, FilterBarShown=0, ToolBarShown=0
-OpenWindow="Registers 1", DockArea=LEFT, x=0, y=4, w=473, h=112, FilterBarShown=0, ToolBarShown=0, FilteredItems=[], RefreshRate=1
-OpenWindow="Source Files", DockArea=LEFT, x=0, y=0, w=473, h=163, FilterBarShown=1, ToolBarShown=0
-OpenWindow="Disassembly", DockArea=LEFT, x=0, y=3, w=473, h=129, FilterBarShown=0, ToolBarShown=0, ExecCountersShown=0, InstEncodingsShown=0
+OpenWindow="Registers 1", DockArea=LEFT, x=0, y=5, w=473, h=84, FilterBarShown=0, ToolBarShown=0, FilteredItems=[], RefreshRate=1
+OpenWindow="Source Files", DockArea=LEFT, x=0, y=0, w=473, h=105, FilterBarShown=1, ToolBarShown=0
+OpenWindow="Disassembly", DockArea=LEFT, x=0, y=4, w=473, h=128, FilterBarShown=0, ToolBarShown=0, ExecCountersShown=0, InstEncodingsShown=0
 OpenWindow="Source", x=0, y=0, w=0, h=0, FilterBarShown=0, ToolBarShown=0, ExecCountersShown=0
-OpenWindow="Break & Tracepoints", DockArea=LEFT, x=0, y=1, w=473, h=149, FilterBarShown=0, ToolBarShown=0, VectorCatchIndexMask=0
+OpenWindow="Break & Tracepoints", DockArea=LEFT, x=0, y=2, w=473, h=150, FilterBarShown=0, ToolBarShown=0, VectorCatchIndexMask=0
 OpenWindow="Memory 1", DockArea=BOTTOM, x=1, y=0, w=927, h=147, FilterBarShown=0, ToolBarShown=0, EditorAddress=0x0
 OpenWindow="Global Data", DockArea=RIGHT, x=0, y=0, w=376, h=762, FilterBarShown=1, ToolBarShown=0
-OpenWindow="Watched Data", DockArea=FLOATING, x=381, y=205, w=784, h=353, FilterBarShown=0, ToolBarShown=0
-OpenWindow="Functions", DockArea=LEFT, x=0, y=5, w=473, h=113, FilterBarShown=1, ToolBarShown=0
-OpenWindow="Data Graph", DockArea=FLOATING, x=807, y=115, w=799, h=626, FilterBarShown=0, ToolBarShown=0, VisibleTab=0, SamplingFreq=1 kHz, ClearEvent=RESUME, LegendShown=0, UniformSampleSpacing=0, PinCursor=-1, TimePerDiv=0
+OpenWindow="Watched Data", DockArea=LEFT, x=0, y=1, w=473, h=105, FilterBarShown=0, ToolBarShown=0
+OpenWindow="Functions", DockArea=LEFT, x=0, y=6, w=473, h=105, FilterBarShown=1, ToolBarShown=0
 OpenWindow="Find Results", DockArea=RIGHT, x=0, y=0, w=376, h=762, FilterBarShown=0, ToolBarShown=0
 OpenWindow="Console", DockArea=BOTTOM, x=0, y=0, w=992, h=147, FilterBarShown=0, ToolBarShown=0
-OpenWindow="FreeRTOS", DockArea=LEFT, x=0, y=2, w=473, h=110, FilterBarShown=0, ToolBarShown=0, Showing="Task List"
+OpenWindow="Power Graph", DockArea=FLOATING, x=376, y=170, w=774, h=562, FilterBarShown=0, ToolBarShown=0, VisibleTab=0, SamplingFreq=1 kHz, ClearEvent=RESUME, LegendShown=0, UniformSampleSpacing=0, ShowAverage=100 ms, PinCursor=-1, TimePerDiv=1000000
+OpenWindow="FreeRTOS", DockArea=LEFT, x=0, y=3, w=473, h=105, FilterBarShown=0, ToolBarShown=0, Showing="Task List"
 TableHeader="Global Data", SortCol="Name", SortOrder="DESCENDING", VisibleCols=["Name";"Value";"Location";"Size";"Type";"Scope"], ColWidths=[148;107;65;44;48;399]
-TableHeader="Watched Data", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh"], ColWidths=[161;258;157;208]
+TableHeader="Watched Data", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh"], ColWidths=[161;258;157;58]
 TableHeader="Vector Catches", SortCol="None", SortOrder="ASCENDING", VisibleCols=["";"Vector Catch";"Description"], ColWidths=[50;300;500]
 TableHeader="Break & Tracepoints", SortCol="None", SortOrder="ASCENDING", VisibleCols=["";"Type";"Location";"Extras"], ColWidths=[55;56;182;180]
 TableHeader="Functions", SortCol="Name", SortOrder="DESCENDING", VisibleCols=["Name";"Address";"Size";"#Insts";"Source"], ColWidths=[199;64;44;57;231]
 TableHeader="Call Stack", SortCol="Function", SortOrder="ASCENDING", VisibleCols=["Function";"Stack Frame";"Source";"PC";"Return Address";"Stack Used"], ColWidths=[316;126;210;86;190;77]
 TableHeader="Source Files", SortCol="File", SortOrder="ASCENDING", VisibleCols=["File";"Status";"Size";"#Insts";"Path"], ColWidths=[226;70;54;66;1141]
-TableHeader="Data Graph", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time                    ";" g_dbug_count"], ColWidths=[91;57;651]
-TableHeader="Data Graph", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[98;57;61;50;53;77;92;101;210]
-TableHeader="Power Graph", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Channel 0"], ColWidths=[84;119;126]
 TableHeader="Task List", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Name";"Run Count";"Priority";"Status";"Timeout";"Stack Info (Free / Size)";"ID";"Mutex Count";"Notified Value";"Notify State"], ColWidths=[110;78;110;110;110;160;110;110;110;110]
 TableHeader="Registers 1", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[27;162;263]
 TableHeader="RegisterSelectionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Auto";"Name";"Address";"Description"], ColWidths=[27;27;27;37]
+TableHeader="Power Graph", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Channel 0"], ColWidths=[84;119;571]
 WatchedExpression="g_return_val", RefreshRate=5
 WatchedExpression="g_count", RefreshRate=5
 WatchedExpression="led1_count", RefreshRate=5
@@ -40,6 +39,6 @@ WatchedExpression="ble_init_err_code", RefreshRate=5
 WatchedExpression="ram_start_add", RefreshRate=5, DisplayFormat=DISPLAY_FORMAT_HEX
 WatchedExpression="err_code_string", RefreshRate=5
 WatchedExpression="sensor_data"
-WatchedExpression="g_recv_data_temp", RefreshRate=5
+WatchedExpression="g_recv_data_temp", RefreshRate=5, DisplayFormat=DISPLAY_FORMAT_HEX
 WatchedExpression="g_recv_data_humidity", RefreshRate=5
 WatchedExpression="g_recv_data_air_qual", RefreshRate=5

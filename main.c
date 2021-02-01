@@ -54,6 +54,7 @@
 #include "BLE_Services.h"
 #include "ADC.h"
 #include "Calibration.h"
+#include "LCD.h"
 
 #include "FreeRTOS.h"
 #include "task.h"
@@ -518,7 +519,7 @@ static void adc_sampling_thread(void* arg)
       sample.air_quality = get_raw_air_quality();
 
       //Push to queue
-      xQueueSendToFront(m_adc_samples_queue, (&sample), 0);
+      xQueueSend(m_adc_samples_queue, (&sample), 0);
 
       //Inspect high water mark on entering the task
       uxHighWaterMark_adc = uxTaskGetStackHighWaterMark( NULL );
@@ -553,13 +554,14 @@ void Timer_Callback_Fn( TimerHandle_t xTimer )
  */
 
 
+
 void* g_ptr;
 
 int main(void)
 {
     clock_init();
     bsp_board_leds_init();// Initialize LEDs for debugging
-   
+
     timers_init();        // Initialize application timers
     saadc_init();
 
@@ -582,13 +584,13 @@ int main(void)
         APP_ERROR_HANDLER(NRF_ERROR_NO_MEM);
     }
 
-    g_return_val = xTaskCreate(adc_sampling_thread, "ADC", 100, NULL, 1, &m_adc_thread);
+    g_return_val = xTaskCreate(adc_sampling_thread, "ADC", 100, NULL, 2, &m_adc_thread);
     if(pdPASS != g_return_val)
     {
         APP_ERROR_HANDLER(NRF_ERROR_NO_MEM);
     }
 
-    g_return_val = xTaskCreate(display_thread, "DISP", 100, NULL, 2, &m_display_thread);
+    g_return_val = xTaskCreate(display_thread, "DISP", 100, NULL, 1, &m_display_thread);
     if (pdPASS != g_return_val)
     {
         APP_ERROR_HANDLER(NRF_ERROR_NO_MEM);

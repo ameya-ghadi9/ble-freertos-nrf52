@@ -116,6 +116,7 @@ _build/main.o: C:\Ameya\Projects\BLE_nRF52_Project\Ameya_Personal_Project\nRF5_S
 _build/main.o: C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 7.5\arm\inc\c\math.h
 _build/main.o: C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 7.5\arm\inc\c\ymath.h
 _build/main.o: C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 7.5\arm\inc\c\xtgmath.h
+_build/main.o: C:\Ameya\Projects\BLE_nRF52_Project\Ameya_Personal_Project\nRF5_SDK_13.0.0_04a0bfd\examples\ble_peripheral\ble_app_hrs_freertos\LCD.h
 _build/main.o: C:\Ameya\Projects\BLE_nRF52_Project\Ameya_Personal_Project\nRF5_SDK_13.0.0_04a0bfd\external\freertos\source\include\FreeRTOS.h
 _build/main.o: C:\Ameya\Projects\BLE_nRF52_Project\Ameya_Personal_Project\nRF5_SDK_13.0.0_04a0bfd\external\freertos\source\include\projdefs.h
 _build/main.o: C:\Ameya\Projects\BLE_nRF52_Project\Ameya_Personal_Project\nRF5_SDK_13.0.0_04a0bfd\external\freertos\source\include\portable.h

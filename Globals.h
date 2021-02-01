@@ -44,6 +44,8 @@
 #include "nrf_drv_clock.h"
 #include "nrf_ble_gatt.h"
 
+extern uint8_t customChar[8];
+
 void sleep_mode_enter(void);
 void log_init(void);
 void power_manage(void);

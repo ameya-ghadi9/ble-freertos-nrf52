@@ -6,7 +6,18 @@
  *
  * @note This function will not return.
  */
- 
+
+uint8_t customChar[8] = {
+	0x00,
+	0x0A,
+	0x1F,
+	0x1F,
+	0x0E,
+	0x04,
+	0x00,
+	0x00
+};
+
 void sleep_mode_enter(void)
 {
     ret_code_t err_code;
